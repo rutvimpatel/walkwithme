@@ -1,0 +1,51 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\author{Nick, Rutvi, George, Yvonne}
+\title{Technical Proposal}
+\begin{document}
+\maketitle\section*{User Authentication}
+
+We intend to use Firebase to do following: 
+\begin{itemize}
+\item Allow sign users up an log in to use our service, using regular expressions to verify that they are using an UW email
+\item A phone number, to allow SMS messages to be sent, notifying the user that their walking partner has/has not confirmed.
+\item Information to build a basic profile, including user name, photo, and biography.
+\item The ratings other people have given this user. IE how pleasant was their walk, were they on time, ect.
+\end{itemize}
+We also intend to allow users to login using Facebook, but that will be one of the last things that we implement.
+
+\section*{Map}
+We intend to use the Google Maps API to achieve the following:
+\begin{itemize}
+\item Create the map that the user can see where other people are offering their umbrellas
+\item Use location services to convert an address to longitude and latitude to enter a new point onto the map.
+\item Use location services to allow users to use their current address to create a new point on the map.
+\item While the user is walking, record their walk, and be able to save the map in case of emergencies - this can only really be done if the user is logged in on their phone.
+\end{itemize}
+
+\section*{SMS}
+
+We are going to use TextBelt to be able to send users SMS messages to let them know if the person who has an umbrella has approved their walk, and potentially to allow reminders.
+
+\section*{AngularJS	}
+We intend to use Angular for:
+\begin{itemize}
+\item Fill out the form for a new umbrella to be shared.
+\item Build a user's profile page with information from FireBase.
+\item Filter items from the map by time, radius, ect.
+\end{itemize}
+
+\section*{Security}
+Some additional security features we wish to implement:
+\begin{itemize}
+\item Do not allow users to log in after a certain time of night.
+\item Create a emergency button/page that will contact 911 or Campus Security.
+\item If there is an emergency, push the map of their walk to the main page, with some kind of notification.
+\end{itemize}
+
+
+\end{document}
