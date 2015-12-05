@@ -1,6 +1,7 @@
 (function() {
 
-	var myApp = angular.module('myApp', ['firebase', 'ui.router']);
+	var myApp = angular.module('myApp', ['firebase', 'ui.bootstrap', 'ui.router']);
+
 	myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseObject, $http){ // Do we need http?
 		console.log('weeeeeeee');
 		
@@ -22,6 +23,5 @@
 		console.log(authData);
 
 	})
-
 
 })();
