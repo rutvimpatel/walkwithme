@@ -43,8 +43,7 @@
 			    
 			    // This will redirect to spot.html once the user is logged in
 			    if ($scope.userID) {
-			    	var location = window.location.href; 
-			    	window.location.assign(location + "spot.html");
+			    	// code to redirect user if already signed in 
 			    }
 			})
 
@@ -54,6 +53,44 @@
 			});
 		}
 
+		// SignIn function
+		$scope.signIn = function() {
+		  	$scope.logIn().then(function(authData){
+		    	$scope.userID = authData.uid;
+		 	})
+		    // This will redirect to spot.html once the user is logged in
+		    if ($scope.userID) { 
+		    	console.log("signed in");
+		    	// take user to different page now
+		    }
+		}
+
+		// This will log in existing users
+		$scope.logIn = function() {
+			console.log('log in');
+			return $scope.authObj.$authWithPassword({
+		    	email: $scope.user,
+		    	password: $scope.pass
+		  	})
+		}
+
+		// LogIn function for new users
+		$scope.newlogIn = function() {
+			console.log('new log in')
+		 	return $scope.authObj.$authWithPassword({
+		    	email: $scope.newEmail,
+		    	password: $scope.newPass
+		  	})
+		}
+
+		// LogOut function
+		$scope.logOut = function() {
+		 	$scope.authObj.$unauth();
+		 	$scope.userID = false;
+		 	console.log ($scope.userID);
+		  // This will redirect to the login page
+		  // some way to redirect
+		}
 	})
 
 })();
