@@ -19,8 +19,40 @@
 		  $scope.userID = authData.uid;
 		  console.log($scope.userID);
 		}
-
 		console.log(authData);
+
+		// SignUp function
+		$scope.signUp = function() {
+			// Create user
+		 	$scope.authObj.$createUser({
+		    	email: $scope.newEmail,
+		    	password: $scope.newPass,      
+		  	})
+
+		  	// Once the user is created, call the logIn function
+		  	.then($scope.newlogIn)
+
+			  // Once logged in, set and save the user data
+			.then(function(authData) {
+			    $scope.userID = authData.uid;
+			    $scope.users[authData.uid] ={
+			      username : $scope.newName, 
+			      // userImage:$scope.userImage,
+				}
+				$scope.users.$save()
+			    
+			    // This will redirect to spot.html once the user is logged in
+			    if ($scope.userID) {
+			    	var location = window.location.href; 
+			    	window.location.assign(location + "spot.html");
+			    }
+			})
+
+			// Catch any errors
+			.catch(function(error) {
+			    console.error("Error: ", error);
+			});
+		}
 
 	})
 
