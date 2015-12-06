@@ -1,8 +1,17 @@
 body {
 	background-color: #001C28;
+	color: #B8B8B8;
 }
 
 header {
 	background-image: url('../img/header.jpg');
 	height: 200px;
+}
+
+#welcome h1 {
+	font-size: 6em;
+	font-weight: bold;
+	letter-spacing: 0.25em;
+	font-style: 'Arial';
+	text-align: center;
 }

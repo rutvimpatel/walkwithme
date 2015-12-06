@@ -5,7 +5,7 @@
 	myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseObject, $http){ // Do we need http?
 		console.log('weeeeeeee');
 		
-		var ref = new Firebase('https://walkwithme343.firebaseio.com/');
+		var ref = new Firebase('https://walkwithme343c.firebaseio.com/');
 
 		var usersRef = ref.child("users");
 
