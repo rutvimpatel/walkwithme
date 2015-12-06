@@ -93,4 +93,29 @@
 		}
 	})
 
+	myApp.config(function($stateProvider) {
+	    $stateProvider
+	    // Each state routes to a different page
+	 	.state('signIn', {
+		    url:'/signIn',
+		    templateUrl: 'templates/signIn.html',
+		    controller: 'myCtrl',
+	 	})
+	 	.state('create', {
+		    url:'/create',
+		    templateUrl: 'templates/create.html',
+		    controller: 'myCtrl',
+	 	})
+	})
+
+	//controller for sign in page
+	// myApp.controller('signInController', function($scope){
+	 	
+	// })
+
+	// // Controller for create page
+	// myApp.controller('createController', function($scope){
+	 	
+	// })
+
 })();
