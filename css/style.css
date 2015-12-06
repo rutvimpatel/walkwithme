@@ -3,6 +3,10 @@ body {
 	color: #B8B8B8;
 }
 
+.form-control {
+	width: 30%;
+}
+
 header {
 	background-image: url('../img/header.jpg');
 	height: 200px;
@@ -16,6 +20,11 @@ header {
 	text-align: center;
 }
 
+#create {
+	color: black;
+	margin-top: 1em;
+}
+
 #welcome h2 {
 	text-align: center;
 }
@@ -23,12 +32,4 @@ header {
 #chooseAuth {
 	margin-right: 
 
-}
-
-#user {
-	width: 30%;
-}
-
-#pass {
-	width: 30%;
 }
