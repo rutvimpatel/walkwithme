@@ -91,6 +91,11 @@
 		  // This will redirect to the login page
 		  // some way to redirect
 		}
+
+		// Pass Profile info to Firebase
+		$scope.setProfile = function() {
+			
+		}
 	})
 
 	myApp.config(function($stateProvider) {

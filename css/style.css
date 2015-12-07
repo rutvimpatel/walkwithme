@@ -1,15 +1,7 @@
 body {
 	background-image: url("../img/seattle.jpg");
 	background-size: 100%;
-	color: white;
-}
-
-#titleWelcome {
-	font-size: 6em;
-	font-weight: bold;
-	letter-spacing: 0.25em;
-	font-style: 'Arial';
-	text-align: center;
+	color: #d3d3d3;
 }
 
 #create {
@@ -18,11 +10,35 @@ body {
 }
 
 #content {
-	color: #292929;
+	color: #d3d3d3;
+}
+
+#decisionArea {
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+
+#profile {
+	margin-top : 2em;
+}
+
+#startPage {
+	margin-top: 2em;
+	margin-bottom: 2em;
+	text-align : center;
+}
+
+#titleWelcome {
+	font-size: 6em;
+	font-weight: bold;
+	letter-spacing: 0.15em;
+	font-style: 'Arial';
+	text-align: center;
+	color: white;
 }
 
 #welcome {
-	background-color: rgba(211, 211, 211, .75);
+	background-color: rgba(47, 47, 47, .75);
 	border-radius: 10px;
 	margin-left: 10%;
 	margin-right: 10%;
@@ -33,10 +49,6 @@ body {
 
 #welcome h2 {
 	text-align: center;
-}
-
-#welcome #choice {
-	color: #00619c;
 }
 
 .container {
