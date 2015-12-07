@@ -1,18 +1,10 @@
 body {
-	background-color: #001C28;
-	color: #B8B8B8;
+	background-image: url("../img/seattle.jpg");
+	background-size: 100%;
+	color: white;
 }
 
-.form-control {
-	width: 30%;
-}
-
-header {
-	background-image: url('../img/header.jpg');
-	height: 200px;
-}
-
-#welcome h1 {
+#titleWelcome {
 	font-size: 6em;
 	font-weight: bold;
 	letter-spacing: 0.25em;
@@ -25,11 +17,32 @@ header {
 	margin-top: 1em;
 }
 
+#content {
+	color: #292929;
+}
+
+#welcome {
+	background-color: rgba(211, 211, 211, .75);
+	border-radius: 10px;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 5em;
+	padding: 2em;
+
+}
+
 #welcome h2 {
 	text-align: center;
 }
 
-#chooseAuth {
-	margin-right: 
+#welcome #choice {
+	color: #00619c;
+}
 
+.container {
+	padding: 0;
+}
+
+.form-control {
+	width: 30%;
 }

@@ -1,5 +1,4 @@
 <h1>Create an account with us</h1>
-<h3 id="newUser">Or create an account:</h3>	
 <!-- This creates a form for the user to create a new account -->
 <form id ="newAccount" name="myForm">
 	<div class="form-group">
@@ -14,7 +13,7 @@
 		
 		<!-- This button will sign in, and redirect to spot.html -->
 		<div class="form-group">
-			<button id = "create" ng-click="signUp()" ng-disabled="myForm.$invalid" type="submit">Create Account</button> 
+			<button id = "create" ng-click="signUp()" ng-disabled="myForm.$invalid" type="submit" ui-sref="profile" >Create Account</button> 
 		</div>
 		<!-- This will appear id the username is too short -->
 		<span id = "help" class="help-block" ng-show="myForm.newName.$error.minlength">Username is too short</span>

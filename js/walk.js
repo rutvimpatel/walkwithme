@@ -106,6 +106,16 @@
 		    templateUrl: 'templates/create.html',
 		    controller: 'myCtrl',
 	 	})
+	 	.state('start', {
+ 			url:'/start',
+ 			templateUrl: 'templates/start.html',
+ 			controller: 'myCtrl',
+	 	})
+	 	.state('profile', {
+	 		url:'/profile',
+	 		templateUrl: 'templates/profile.html',
+	 		controller: 'myCtrl',
+	 	})
 	})
 
 	//controller for sign in page

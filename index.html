@@ -34,38 +34,27 @@
 
 	</head>
 	<body ng-controller="myCtrl">
-		<header>
+		<h1 id="titleWelcome">Welcome<span><img src = "img/welcomeUmb.png" height = "100px"/></span></h1>
 
-			<div class = "container">
+		<div id="welcome">
 
-			</div>
-		</header>
-		<section id = "welcome">
-			<h1>Welcome<span><img src = "img/welcomeUmb.png" height = "100px"/></span></h1>
 			<h2>Insert possible slogan here</h2>
-			<div class = "container">
-				<h4 id = "description"> Walk with us to stay dry in the rain, make a friend, get home safe, or just to make some good conversation.</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<h4 id = "description"> <span style="color: yellow">Walk with us</span> to stay dry in the <span style="color: #00B2EE">rain</span>, make a <span style="color: purple">friend</span>, get home <span style="color: #ff3535">safe</span>, or just to have a great <span style="color: green">conversation</span>.</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</p>
-			</div>
-		</section>
-		<section id = "chooseAuth">
 			<div class="container">
-				<h6>What would you like to do?</h6>
+				<h4 id="choice">What would you like to do?</h4>
 				<a href="#SignIn" class="btn btn-default" ui-sref="signIn" >Sign In</a>
 				<a href="#SignUp" class="btn btn-default" ui-sref="create" >Create Account</a>
-
-
 			</div>
-		</section>
-		
-		<div id = "content" class="container">
-		  	<div ui-view></div>
+			<div id = "content" class="container">
+			  	<div ui-view></div>
+			</div>
 		</div>
 
 
