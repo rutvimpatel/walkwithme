@@ -143,6 +143,11 @@
 	 		templateUrl:'templates/newWalk.html',
 	 		controller: 'myCtrl'
 	 	})
+	 	.state('search', {
+	 		url:'/search',
+	 		templateUrl:'templates/search.html',
+	 		controller:'myCtrl'
+	 	})
 	})
 
 	//controller for sign in page
