@@ -39,7 +39,7 @@
 
 </head>
 <body ng-controller="myCtrl">
-	<h1 id="titleWelcome">Walk With Me<span><img src = "img/welcomeUmb.png" height = "100px"/></span></h1>
+	<h1 id="titleWelcome">Walk With Me<span><img src = "img/welcomeUmb.png" height = "100px"/></span></h1>	
 	<div id="welcome" class="container">
 	<div ng-show="!userID">
 		<h2>Need a get away from the rain?</h2>
@@ -60,7 +60,11 @@
 
 
 				<div id = "content">
-					<div ui-view></div>
+					<button id= "logout" ng-show = "userID" ng-click = "logOut()" type="submit" >Logout</button>	
+					<div ui-view>
+						
+					</div>
+
 				</div>
 	</div>
 
