@@ -1,0 +1,18 @@
+<h1>Search For Someone To Walk With!</h1>
+		<form>
+			<div class="form-group">
+				<label for="name">Name:</label>
+				<input type="text" id="name" placeholder="Your Name" ng-model="query.name"/>
+			</div>
+			<div class="form-group">
+				<label for="destination">Destination:</label>
+				<input type="text" id="destination" placeholder="Your destination" ng-model="query.destString"/>
+			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" ng-model="query.umbrella"> Umbrella?
+				</label>
+			</div>
+			<button ng-click="submit()" type="submit" class="btn btn-default">Submit</button>
+		</form>
+		<div id="map"></div>

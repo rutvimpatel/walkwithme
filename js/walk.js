@@ -148,6 +148,11 @@
 	 		templateUrl:'templates/search.html',
 	 		controller:'myCtrl'
 	 	})
+	 	.state('approvedeny', {
+	 		url:'/approvedeny',
+	 		templateUrl:'templates/approvedeny.html',
+	 		controller:'myCtrl'
+	 	})
 	})
 
 	//controller for sign in page
