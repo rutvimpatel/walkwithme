@@ -11,7 +11,10 @@
 
 	myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseObject, $http){ // Do we need http?
 		$scope.markers = [];
-    	$scope.map = { center: { latitude: 47.6097, longitude: -122.3331 }, zoom: 12 };
+    	$scope.map = { 
+    		center: { latitude: 47.6097, longitude: -122.3331 }, 
+    		zoom: 12 
+    	};
 
 
 		var ref = new Firebase('https://walkwithme343c.firebaseio.com/');
@@ -129,6 +132,16 @@
 	 		url:'/profile',
 	 		templateUrl: 'templates/profile.html',
 	 		controller: 'myCtrl',
+	 	})
+	 	.state('home',{
+	 		url:'/',
+	 		templateUrl:'templates/home.html',
+	 		controller: 'myCtrl'
+	 	})
+	 	.state('newWalk',{
+	 		url:'/newwalk',
+	 		templateUrl:'templates/newWalk.html',
+	 		controller: 'myCtrl'
 	 	})
 	})
 

@@ -40,23 +40,9 @@
 </head>
 <body ng-controller="myCtrl">
 	<h1 id="titleWelcome">Walk With Me<span><img src = "img/welcomeUmb.png" height = "100px"/></span></h1>
+	<div id="welcome" class="container">
 
-	<div id="welcome">
-
-		<h2>Need a get away from the rain?</h2>
-		<h4 id = "description"> <span style="color: yellow">Walk with us</span> to stay dry in the <span style="color: #00B2EE">rain</span>, make a <span style="color: #00B2EE">friend</span>, get home <span style="color: #00B2EE">safe</span>, or just to have a great <span style="color: #00B2EE">conversation</span>.</h4>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		</p>
-		<div id="decisionArea">
-			<h4 id="choice">What would you like to do?</h4>
-			<a href="#SignIn" class="btn btn-default" ui-sref="signIn" >Sign In</a>
-			<a href="#SignUp" class="btn btn-default" ui-sref="create" >Create Account</a>
-		</div>
+		
 		<div id = "content">
 			<div ui-view></div>
 		</div>

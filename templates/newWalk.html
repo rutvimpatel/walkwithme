@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-md-4">
+			<h3 id="username">User name</h3>
+			<img id="profilePic" class="img-responsive img-rounded" src="../img/testProfile.jpeg">
+
+			<div id="numWalks">Number of Walks: 10</div>
+			<div id="rating">Average Rating: 5</div>
+		</div>
+
+		<div class="col-xs-12 col-md-8">
+			<form>
+				<div class="form-group">
+				    <label for="startLocation">Start Location</label>
+				    <input type="text" class="form-control" id="startLocation" placeholder="Where will you be?">
+				  </div>
+				  <div class="form-group">
+				    <label for="destination">Destination</label>
+				    <input type="text" class="form-control" id="destination" placeholder="Where are you going?">
+				  </div>
+				  <div class="form-group">
+				  <!--Replace with something from UI bootstrap -->
+				    <label for="startTime">Start Time</label>
+				    <input type="text" class="form-control" id="startTime" placeholder="When will you be leaving?">
+				  </div>
+
+				  <div class="form-group">
+				    <label for="waitTime">Destination</label>
+				    <input type="text" class="form-control" id="waitTime" placeholder="How long can you wait?">
+				  </div>
+				  <div class="checkbox">
+				<label>
+					<input type="checkbox" ng-model="query.umbrella"> Umbrella?
+				</label>
+				</div>
+				<button ng-click="submit()" type="submit" class="btn btn-default">Submit</button>
+
+			</form>	
+
+		</div>
+	</div>
+</div>

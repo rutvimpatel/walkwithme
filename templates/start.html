@@ -1,5 +1,85 @@
 <div id="startPage">
-	<button class="btn btn-default">Find Me!
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-md-4">
+				<h3 id="username">User name</h3>
+				<img id="profilePic" class="img-responsive img-rounded" src="../img/testProfile.jpeg">
+
+				<div id="numWalks">Number of Walks: 10</div>
+				<div id="rating">Average Rating: 5</div>
+			</div>
+	
+
+			<div class="col-xs-12 col-md-4">
+				<h3>Previous Walks</h3>
+				<div id="previousWalk">
+					<div class="user">
+						<div class="userInfo">
+							User name
+						</div>
+						<div class="previousRating">
+							Rating
+						</div>
+					</div>
+					<div class="user">
+						<div class="userInfo">
+							User name
+						</div>
+						<div class="previousRating">
+							Rating
+						</div>
+					</div><div class="user">
+						<div class="userInfo">
+							User name
+						</div>
+						<div class="previousRating">
+							Rating
+						</div>
+					</div>
+				</div>
+				<button class="btn btn-link">See all</button>
+			</div>
+
+			<div class="col-xs-12 col-md-4">
+				<h3>Blocked Users</h3>
+				<div id="blockedUsers">
+					<div class="user">
+						<div class="userInfo">
+							User name
+						</div>
+						<div class="previousRating">
+							Rating
+						</div>
+						<button class="btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
+					</div>
+					<div class="user">
+						<div class="userInfo">
+							User name
+						</div>
+						<div class="previousRating">
+							Rating
+						</div>
+						<button class="btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
+					</div>
+					<div class="user">
+						<div class="userInfo">
+							User name
+						</div>
+						<div class="previousRating">
+							Rating
+						</div>
+						<button class="btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<button class="btn btn-default" ui-sref="newWalk">Find Me!
 	</button>
 	<button class="btn btn-default">Who's Free?
 	</button>
