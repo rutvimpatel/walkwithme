@@ -1,10 +1,19 @@
 (function() {
 
-	var myApp = angular.module('myApp', ['firebase', 'ui.bootstrap', 'ui.router']);
+	var myApp = angular.module('myApp', ['firebase', 'ui.bootstrap', 'ui.router', 'uiGmapgoogle-maps']);
+	myApp.config(function(uiGmapGoogleMapApiProvider) {
+    	uiGmapGoogleMapApiProvider.configure({
+        	key: 'AIzaSyCc5lF9SklV8T482wlgu6LulxH6mApxzkc',
+        	v: '3.20', //defaults to latest 3.X anyhow
+        	libraries: 'weather,geometry,visualization'
+    	});
+	})
 
 	myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseObject, $http){ // Do we need http?
-		console.log('weeeeeeee');
-		
+		$scope.markers = [];
+    	$scope.map = { center: { latitude: 47.6097, longitude: -122.3331 }, zoom: 12 };
+
+
 		var ref = new Firebase('https://walkwithme343c.firebaseio.com/');
 
 		var usersRef = ref.child("users");
