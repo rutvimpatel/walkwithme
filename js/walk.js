@@ -20,10 +20,12 @@
 		var ref = new Firebase('https://walkwithme343c.firebaseio.com/');
 
 		var usersRef = ref.child("users");
+		var profileInfo = ref.child("prof")
 
 		// firebaseObject of users
 		$scope.users = $firebaseObject(usersRef);
 		$scope.authObj = $firebaseAuth(ref);
+		$scope.prof = $firebaseArray(profileInfo);
 
 		// Test if already logged in
 		var authData = $scope.authObj.$getAuth();
@@ -106,7 +108,11 @@
 
 		// Pass Profile info to Firebase
 		$scope.setProfile = function() {
-			
+			$scope.prof.$add({
+				first: $scope.firstName,
+				last: $scope.lastName,
+				phone: $scope.phone
+			})
 		}
 	})
 
