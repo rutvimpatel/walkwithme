@@ -13,28 +13,28 @@
 				<h3>Add a new search to the map.</h3>
 				<div class="form-group">
 				    <label for="startLocation">Start Location</label>
-				    <input type="text" class="form-control" id="startLocation" placeholder="Where will you be?">
+				    <input type="text" class="form-control" id="startLocation" placeholder="Where will you be?" ng-model="query.startStr">
 				  </div>
 				  <div class="form-group">
 				    <label for="destination">Destination</label>
-				    <input type="text" class="form-control" id="destination" placeholder="Where are you going?">
+				    <input type="text" class="form-control" id="destination" placeholder="Where are you going?" ng-model="query.destStr">
 				  </div>
 				  <div class="form-group">
 				  <!--Replace with something from UI bootstrap -->
 				    <label for="startTime">Start Time</label>
-				    <input type="text" class="form-control" id="startTime" placeholder="When will you be leaving?">
+				    <input type="text" class="form-control" id="startTime" placeholder="When will you be leaving?" ng-model="query.startTime">
 				  </div>
 
 				  <div class="form-group">
-				    <label for="waitTime">Destination</label>
-				    <input type="text" class="form-control" id="waitTime" placeholder="How long can you wait?">
+				    <label for="waitTime">Wait Time</label>
+				    <input type="text" class="form-control" id="waitTime" placeholder="How long can you wait?" ng-model="query.waitTime">
 				  </div>
 				  <div class="checkbox">
 				<label>
 					<input type="checkbox" ng-model="query.umbrella"> Umbrella?
 				</label>
 				</div>
-				<button ng-click="submit()" type="submit" class="btn btn-default">Submit</button>
+				<button ng-click="makeMarker()" type="submit" class="btn btn-default">Submit</button>
 
 			</form>	
 

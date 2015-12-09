@@ -1,5 +1,5 @@
 (function() {
-
+	var geocoder;
 	var myApp = angular.module('myApp', ['firebase', 'ui.bootstrap', 'ui.router', 'uiGmapgoogle-maps']);
 	myApp.config(function(uiGmapGoogleMapApiProvider) {
     	uiGmapGoogleMapApiProvider.configure({
@@ -9,19 +9,61 @@
     	});
 	})
 
-	myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseObject, $http){ // Do we need http?
+	myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseObject, $http, $firebaseArray){ // Do we need http?
+		var ref = new Firebase('https://walkwithme343c.firebaseio.com/');
+
+		var usersRef = ref.child("users");
+		var queriesRef = ref.child("queries");
+		var profileInfo = ref.child("prof");
+
+		$scope.queriesArr = $firebaseArray(queriesRef)
+
+		//The map functions
+		$scope.query = {}
 		$scope.markers = [];
     	$scope.map = { 
     		center: { latitude: 47.6097, longitude: -122.3331 }, 
     		zoom: 12 
     	};
 
+    	$scope.makeMarker = function() {
+    		console.log("Making Marker")
+    		console.log(geocoder)
 
-		var ref = new Firebase('https://walkwithme343c.firebaseio.com/');
+    		console.log("The start location: " + $scope.query.startStr)
+    		if(geocoder===undefined ){
+    			console.log("Made new geocoder")
+    			geocoder= new google.maps.Geocoder();
+    			console.log("The geocoder" + geocoder)
+    		}
+    		$scope.query.userID = $scope.userID;
+    		geocoder.geocode( { "address": $scope.query.startStr }, function(results, status) {
+    		    if (status == google.maps.GeocoderStatus.OK) {
+    		    	console.log("Geocoded start location")
+    		        $scope.query.startPos = results[0].geometry.location;
+    		    } else {
+    		    	console.log("Something wrong happened")
+    		    }
+    		});
+    		geocoder.geocode( { "address": $scope.query.destStr }, function(results, status) {
+    		    if (status == google.maps.GeocoderStatus.OK) {
+    		    	console.log("Geocoded destination")
+    		        $scope.query.destPos = results[0].geometry.location;
+    		        addMarker();
+    		    } else {
+    		    	console.log("Something wrong happened")
+    		    }
+    		});
+    	}
+    	var addMarker = function(){
+    		$scope.queriesArr.$add($scope.query)
+    			.then(function(){
+    				console.log("Resetting")
+    				$scope.query = {}
+    			})
+    	}
 
-		var usersRef = ref.child("users");
-		var profileInfo = ref.child("prof")
-
+    //Login/ User Authentication
 		// firebaseObject of users
 		$scope.users = $firebaseObject(usersRef);
 		$scope.authObj = $firebaseAuth(ref);
