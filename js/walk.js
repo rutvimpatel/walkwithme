@@ -1,5 +1,7 @@
 (function() {
+
 	var geocoder;
+
 	var myApp = angular.module('myApp', ['firebase', 'ui.bootstrap', 'ui.router', 'uiGmapgoogle-maps']);
 	myApp.config(function(uiGmapGoogleMapApiProvider) {
     	uiGmapGoogleMapApiProvider.configure({
@@ -75,7 +77,6 @@
 		  $scope.userID = authData.uid;
 		  console.log($scope.userID);
 		}
-		console.log(authData);
 
 		// SignUp function
 		$scope.signUp = function() {
@@ -113,12 +114,14 @@
 		$scope.signIn = function() {
 		  	$scope.logIn().then(function(authData){
 		    	$scope.userID = authData.uid;
+		    	
 		 	})
+		  	console.log($scope.userID);
 		    // This will redirect to spot.html once the user is logged in
-		    if ($scope.userID) { 
-		    	console.log("signed in");
-		    	// take user to different page now
-		    }
+		    // if ($scope.userID) { 
+		    // 	console.log("signed in");
+		    // 	// take user to different page now
+		    // }
 		}
 
 		// This will log in existing users
@@ -142,7 +145,7 @@
 		// LogOut function
 		$scope.logOut = function() {
 		 	$scope.authObj.$unauth();
-		 	$scope.userID = false;
+		 	$scope.userID = 'false'; // can probably set this to authobj.uid
 		 	console.log ($scope.userID);
 		  // This will redirect to the login page
 		  // some way to redirect
@@ -181,11 +184,11 @@
 	 		templateUrl: 'templates/profile.html',
 	 		controller: 'myCtrl',
 	 	})
-	 	.state('home',{
-	 		url:'/',
-	 		templateUrl:'templates/home.html',
-	 		controller: 'myCtrl'
-	 	})
+	 	// .state('home',{
+	 	// 	url:'',
+	 	// 	templateUrl:'',
+	 	// 	controller: 'myCtrl'
+	 	// })
 	 	.state('newWalk',{
 	 		url:'/newwalk',
 	 		templateUrl:'templates/newWalk.html',
