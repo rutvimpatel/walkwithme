@@ -10,12 +10,22 @@
 			
 		<label for="newPass"> Create a Password</label>
 		<input id="newPass" name = "newPass" type = "password" ng-model="newPass" class="form-control"></input>
+
+		<label for="firstName"> What's your first name? </label>
+		<input id="firstName" name = "firstName" ng-model="firstName" ng-minlength="1" type ="string" class="form-control"></input>
+
+		<label for="lastName"> What's your last name? </label>
+		<input id="lastName" name = "lastName" ng-model="lastName" ng-minlength="1" type ="string" class="form-control"></input>
+			
+		<label for="phone">What's your phone number?</label>
+		<input id="phone" name = "phone" type = "phone" ng-model="phone" class="form-control" ng-minlength="9"></input>
 		
 		<!-- This button will sign in, and redirect to spot.html -->
 		<div class="form-group">
-			<button id = "create" ng-click="signUp()" ng-disabled="myForm.$invalid" type="submit" ui-sref="profile" >Create Account</button> 
+			<button id = "create" ng-click="signUp()" ng-disabled="myForm.$invalid" type="submit" ui-sref="start" >Create Account</button> 
 		</div>
 		<!-- This will appear id the username is too short -->
-		<span id = "help" class="help-block" ng-show="myForm.newName.$error.minlength">Username is too short</span>
+		<span id = "help" class="help-block" ng-show="myForm.newName.$error.minlength">Too short</span>
 	</div>
 </form>
+

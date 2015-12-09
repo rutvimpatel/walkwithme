@@ -14,7 +14,6 @@
 
 		var usersRef = ref.child("users");
 		var queriesRef = ref.child("queries");
-		var profileInfo = ref.child("prof");
 
 		$scope.queriesArr = $firebaseArray(queriesRef)
 
@@ -25,6 +24,18 @@
     		center: { latitude: 47.6097, longitude: -122.3331 }, 
     		zoom: 12 
     	};
+    	//Login/ User Authentication
+		// firebaseObject of users
+		$scope.users = $firebaseObject(usersRef);
+		$scope.authObj = $firebaseAuth(ref);
+
+		// Test if already logged in
+		var authData = $scope.authObj.$getAuth();
+		if (authData) {
+		  $scope.userID = authData.uid;
+		  console.log($scope.userID);
+		}
+		console.log(authData);
 
     	$scope.makeMarker = function() {
     		console.log("Making Marker")
@@ -63,19 +74,17 @@
     			})
     	}
 
-    //Login/ User Authentication
-		// firebaseObject of users
-		$scope.users = $firebaseObject(usersRef);
-		$scope.authObj = $firebaseAuth(ref);
-		$scope.prof = $firebaseArray(profileInfo);
-
-		// Test if already logged in
-		var authData = $scope.authObj.$getAuth();
-		if (authData) {
-		  $scope.userID = authData.uid;
-		  console.log($scope.userID);
+    	// SignIn function
+		$scope.signIn = function() {
+		  	$scope.logIn().then(function(authData){
+		    	$scope.userID = authData.uid;
+		 	})
+		    // This will redirect to spot.html once the user is logged in
+		    if ($scope.userID) { 
+		    	console.log("signed in");
+		    	// take user to different page now
+		    }
 		}
-		console.log(authData);
 
 		// SignUp function
 		$scope.signUp = function() {
@@ -92,7 +101,10 @@
 			.then(function(authData) {
 			    $scope.userID = authData.uid;
 			    $scope.users[authData.uid] ={
-			      username : $scope.newName, 
+				    username : $scope.newName, 
+				    first: $scope.firstName,
+					last: $scope.lastName,
+				    phone: $scope.phone
 			      // userImage:$scope.userImage,
 				}
 				$scope.users.$save()
@@ -107,18 +119,6 @@
 			.catch(function(error) {
 			    console.error("Error: ", error);
 			});
-		}
-
-		// SignIn function
-		$scope.signIn = function() {
-		  	$scope.logIn().then(function(authData){
-		    	$scope.userID = authData.uid;
-		 	})
-		    // This will redirect to spot.html once the user is logged in
-		    if ($scope.userID) { 
-		    	console.log("signed in");
-		    	// take user to different page now
-		    }
 		}
 
 		// This will log in existing users
@@ -148,14 +148,6 @@
 		  // some way to redirect
 		}
 
-		// Pass Profile info to Firebase
-		$scope.setProfile = function() {
-			$scope.prof.$add({
-				first: $scope.firstName,
-				last: $scope.lastName,
-				phone: $scope.phone
-			})
-		}
 	})
 
 	myApp.config(function($stateProvider) {
@@ -175,11 +167,6 @@
  			url:'/start',
  			templateUrl: 'templates/start.html',
  			controller: 'myCtrl',
-	 	})
-	 	.state('profile', {
-	 		url:'/profile',
-	 		templateUrl: 'templates/profile.html',
-	 		controller: 'myCtrl',
 	 	})
 	 	.state('home',{
 	 		url:'/',
