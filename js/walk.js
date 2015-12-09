@@ -1,5 +1,7 @@
 (function() {
+
 	var geocoder;
+
 	var myApp = angular.module('myApp', ['firebase', 'ui.bootstrap', 'ui.router', 'uiGmapgoogle-maps']);
 	myApp.config(function(uiGmapGoogleMapApiProvider) {
     	uiGmapGoogleMapApiProvider.configure({
@@ -120,7 +122,7 @@
 			    console.error("Error: ", error);
 			});
 		}
-
+		
 		// This will log in existing users
 		$scope.logIn = function() {
 			console.log('log in');
@@ -142,7 +144,7 @@
 		// LogOut function
 		$scope.logOut = function() {
 		 	$scope.authObj.$unauth();
-		 	$scope.userID = false;
+		 	$scope.userID = 'false'; // can probably set this to authobj.uid
 		 	console.log ($scope.userID);
 		  // This will redirect to the login page
 		  // some way to redirect
