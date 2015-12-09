@@ -1,34 +1,25 @@
+/* ======Front Page====== */
+
 body {
 	background-image: url("../img/seattle.jpg");
 	background-size: cover;
 	color: #d3d3d3;
 }
 
-#create {
-	color: black;
-	margin-top: 1em;
-}
-
-#content {
-	color: #d3d3d3;
-}
-
-#decisionArea {
+body #decisionArea {
 	margin-top: 3em;
 	margin-bottom: 3em;
 }
 
-#profile {
-	margin-top : 2em;
+body #map-canvas {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5em;
+	width: 90%;
+	height: 400px;
 }
 
-#startPage {
-	margin-top: 2em;
-	margin-bottom: 2em;
-
-}
-
-#titleWelcome {
+body #titleWelcome {
 	font-size: 6em;
 	font-weight: bold;
 	letter-spacing: 0.15em;
@@ -37,7 +28,7 @@ body {
 	color: white;
 }
 
-#welcome {
+body #welcome {
 	background-color: rgba(47, 47, 47, .75);
 	width: 90%;
 	margin-left: auto;
@@ -47,8 +38,31 @@ body {
 
 }
 
-#welcome h2 {
+body #welcome h2 {
 	text-align: center;
+}
+
+button {
+	color: black;
+}
+
+/* ======Individual Page CSS====== */
+#create {
+	margin-top: 1em;
+}
+
+#profile {
+	margin-top : 2em;
+}
+
+#startPage {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+/* ======Shared Classes====== */
+.angular-google-map-container { 
+	height: 400px; 
 }
 
 .container {
@@ -59,42 +73,29 @@ body {
 	width: 30%;
 }
 
-#map-canvas {
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 5em;
-	width: 90%;
-	height: 400px;
-}
-.angular-google-map-container { height: 400px; }
-
-#username {
-	text-align: left;
-	font-size: 2em;
+.logout {
+	float: right;
+	color: black;
 }
 
-#profilePic {
-	min-width: 30%;
-}
-
-#numWalks, #rating {
+.numWalks, .rating {
 	display: inline-block;
 	font-size: 1em;
 	text-align: left;
 	padding: 5px;
 }
 
+.profilePic {
+	min-width: 30%;
+}
 
-#startPage .user .userInfo, .previousRating {
+.user .userInfo, .previousRating {
 	display: inline;
 	font-size: 1.5em;
 	padding: .5em;
 }
 
-#logout {
-	float: right;
-	color: black;
+.username {
+	text-align: left;
+	font-size: 2em;
 }
-
-.detail { 
-float : right;}

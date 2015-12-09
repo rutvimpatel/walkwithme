@@ -1,44 +1,46 @@
-<div class="container">
-	<button id= "logout" ng-click = "logOut()" type="submit" >Logout</button>
-	<div class="row">
-		<div class="col-xs-12 col-md-4">
-			<h3 id="username">User name</h3>
-			<img id="profilePic" class="img-responsive img-rounded" src="../img/testProfile.jpeg">
+<!-- Page for posting a walk. -->
+<div id="newWalk">
 
-			<div id="numWalks">Number of Walks: 10</div>
-			<div id="rating">Average Rating: 5</div>
+	<button class="logout" ng-click = "logOut()" type="submit" ui-sref="signIn">Logout</button>
+	
+	<div class="row">
+		<!--  Profile Info -->
+		<div class="col-xs-12 col-md-4">
+			<h3 class="username">{{users[userID].username}}</h3>
+			<img class="profilePic" class="img-responsive img-rounded" src="../img/testProfile.jpeg">
+			<div class="numWalks">Number of Walks: 10</div>
+			<div class="rating">Average Rating: 5</div>
 		</div>
 
+		<!-- Post Walk Information -->
 		<div class="col-xs-12 col-md-8">
 			<form>
 				<h3>Add a new search to the map.</h3>
 				<div class="form-group">
-				    <label for="startLocation">Start Location</label>
+					<label for="startLocation">Start Location</label>
 				    <input type="text" class="form-control" id="startLocation" placeholder="Where will you be?" ng-model="query.startStr">
-				  </div>
-				  <div class="form-group">
+				</div>
+				<div class="form-group">
 				    <label for="destination">Destination</label>
 				    <input type="text" class="form-control" id="destination" placeholder="Where are you going?" ng-model="query.destStr">
-				  </div>
-				  <div class="form-group">
-				  <!--Replace with something from UI bootstrap -->
+				</div>
+				<div class="form-group">
 				    <label for="startTime">Start Time</label>
 				    <input type="text" class="form-control" id="startTime" placeholder="When will you be leaving?" ng-model="query.startTime">
-				  </div>
-
-				  <div class="form-group">
+				</div>
+				<div class="form-group">
 				    <label for="waitTime">Wait Time</label>
 				    <input type="text" class="form-control" id="waitTime" placeholder="How long can you wait?" ng-model="query.waitTime">
-				  </div>
-				  <div class="checkbox">
-				<label>
-					<input type="checkbox" ng-model="query.umbrella"> Umbrella?
-				</label>
 				</div>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" ng-model="query.umbrella"> Umbrella?
+					</label>
+				</div>
+					
 				<button ng-click="makeMarker()" type="submit" class="btn btn-default">Submit</button>
-
 			</form>	
-
 		</div>
+
 	</div>
 </div>

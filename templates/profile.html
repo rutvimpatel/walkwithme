@@ -1,5 +1,5 @@
 <div id="profile">	
-	<button id= "logout" ng-click = "logOut()" type="submit" >Logout</button>
+	<button class="logout" ng-click = "logOut()" type="submit" ui-sref="signIn">Logout</button>
 	<div class="form-group">
 		<label for="firstName"> What's your first name? </label>
 		<input id="firstName" name = "firstName" ng-model="firstName" ng-minlength="1" type ="string" class="form-control"></input>

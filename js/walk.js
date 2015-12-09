@@ -107,7 +107,6 @@
 				    first: $scope.firstName,
 					last: $scope.lastName,
 				    phone: $scope.phone
-			      // userImage:$scope.userImage,
 				}
 				$scope.users.$save()
 			    
@@ -122,7 +121,7 @@
 			    console.error("Error: ", error);
 			});
 		}
-		
+
 		// This will log in existing users
 		$scope.logIn = function() {
 			console.log('log in');

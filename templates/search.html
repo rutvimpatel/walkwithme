@@ -1,12 +1,12 @@
 <div class="container">
-	<button id= "logout" ng-click = "logOut()" type="submit" >Logout</button>
+	<button class="logout" ng-click = "logOut()" type="submit" ui-sref="signIn">Logout</button>
 	<div class="row">
+		<!--  Profile Info -->
 		<div class="col-xs-12 col-md-4">
-			<h3 id="username">User name</h3>
-			<img id="profilePic" class="img-responsive img-rounded" src="../img/testProfile.jpeg">
-
-			<div id="numWalks">Number of Walks: 10</div>
-			<div id="rating">Average Rating: 5</div>
+			<h3 class="username">{{users[userID].username}}</h3>
+			<img class="profilePic" class="img-responsive img-rounded" src="../img/testProfile.jpeg">
+			<div class="numWalks">Number of Walks: 10</div>
+			<div class="rating">Average Rating: 5</div>
 		</div>
 
 		<div class="col-xs-12 col-md-8">
