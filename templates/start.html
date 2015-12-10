@@ -1,79 +1,20 @@
 <!-- Profile Page, allows user to post their walk or search for one. -->
-<div id="startPage" ng-show = "userID">
 
+<div id="startPage" ng-show = "userID">
 	<div class="container">
 		<div class="row">
 			<!--  Profile Info -->
 			<div class="col-xs-12 col-md-4">
-				<h3 class="username">{{users[userID].username}}</h3>
+				<h3 class="username">{{users[userID].firstName + " " + users[userID].lastName}}</h3>
 				<img class="profilePic" class="img-responsive img-rounded" src="../img/testProfile.jpeg">
-				<div class="numWalks">Number of Walks: 10</div>
-				<div class="rating">Average Rating: 5</div>
 			</div>
-	
+			
 			<!--Previous Walks --> 
-			<div class="col-xs-12 col-md-4">
-				<h3>Previous Walks</h3>
-				<div id="previousWalk">
-					<div class="user">
-						<div class="userInfo">
-							User name
-						</div>
-						<div class="previousRating">
-							Rating
-						</div>
-					</div>
-					<div class="user">
-						<div class="userInfo">
-							User name
-						</div>
-						<div class="previousRating">
-							Rating
-						</div>
-					</div><div class="user">
-						<div class="userInfo">
-							User name
-						</div>
-						<div class="previousRating">
-							Rating
-						</div>
-					</div>
-				</div>
-				<button class="btn btn-link">See all</button>
+			<div class="weather col-xs-12 col-md-4">
 			</div>
 
 			<!--Blocked Users --> 
 			<div class="col-xs-12 col-md-4">
-				<h3>Blocked Users</h3>
-				<div id="blockedUsers">
-					<div class="user">
-						<div class="userInfo">
-							User name 
-						</div>
-						<div class="previousRating">
-							Rating
-						</div>
-						<button class="btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-					</div>
-					<div class="user">
-						<div class="userInfo">
-							User name
-						</div>
-						<div class="previousRating">
-							Rating
-						</div>
-						<button class="btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-					</div>
-					<div class="user">
-						<div class="userInfo">
-							User name
-						</div>
-						<div class="previousRating">
-							Rating
-						</div>
-						<button class="btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -82,8 +23,6 @@
 
 	<!-- List/Search buttons --> 
 	<button id="findMe" class="btn btn-default" ui-sref="newWalk">Find Me!
-	</button>
-	<button class="btn btn-default" ui-sref="search">Who's Free?
 	</button>
 
 </div> 

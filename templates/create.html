@@ -2,33 +2,62 @@
 <div id="create">
 	<h1>Create an account with us</h1>
 	<!-- This creates a form for the user to create a new account -->
-	<form id ="newAccount" name="myForm">
+	<form novalidate id ="newAccount" name="userForm">
 		<div class="form-group">
 			<label for="newName"> Create a Username: </label>
-			<input id="newName" name = "newName" ng-model="newName" ng-minlength="6" type ="string" class="form-control"></input>
+			<input id="newName" name = "newName" ng-model="newName" ng-minlength="6" type ="text" class="form-control"></input>
+			<p ng-show="userForm.newName.$error.minlength" class="help-block">Username is too short.</p>
 
+			<div ng-show="userForm.$submitted || userForm.newName.$touched">
+				<p ng-show="userForm.newName.$error.required" class="error-message">Username is required.</p>
+			</div>
+		</div>
+
+		<div class="form-group">
 			<label for="email"> Enter an email address: </label>
 			<input id="newEmail" name = "newEmail" ng-model="newEmail" type ="email" class="form-control"></input>
-				
+
+			<div ng-show="userForm.$submitted || userForm.newEmail.$touched">
+				<p ng-show="myForm.newEmail.$error.required" class="error-message">Email is required.</p>
+				<p ng-show="myForm.newEmail.$error.email" class="help-block">Email is invalid.</p>
+			</div>
+		</div>
+		
+		<div class="form-group">		
 			<label for="newPass"> Create a Password</label>
 			<input id="newPass" name = "newPass" type = "password" ng-model="newPass" class="form-control"></input>
 
+			<div ng-show="userForm.$submitted || userForm.newPass.$touched">
+				<p ng-show="myForm.newPass.$error.required" class="error-message">Password is required.</p>
+			</div>
+		</div>
+
+		<div class="form-group">
 			<label for="firstName"> What's your first name? </label>
 			<input id="firstName" name = "firstName" ng-model="firstName" ng-minlength="1" type ="string" class="form-control"></input>
 
+			<div ng-show="userForm.$submitted || userForm.firstName.$touched">
+				<p ng-show="myForm.firstName.$error.required" class="error-message">First Name is required.</p>
+			</div>
+		</div>
+
+		<div class="form-group">
 			<label for="lastName"> What's your last name? </label>
 			<input id="lastName" name = "lastName" ng-model="lastName" ng-minlength="1" type ="string" class="form-control"></input>
-				
-			<label for="phone">What's your phone number?</label>
-			<input id="phone" name = "phone" type = "phone" ng-model="phone" class="form-control" ng-minlength="9"></input>
-			
-			<!-- Submits data and brings user to the profile/start page. -->
-			<div class="form-group">
-				<button id = "create" ng-click="signUp()" ng-disabled="myForm.$invalid" type="submit" ui-sref="start" >Create Account</button> 
+
+			<div ng-show="userForm.$submitted || userForm.lastName.$touched">
+				<p ng-show="myForm.lastName.$error.required" class="error-message">Last Name is required.</p>
 			</div>
-			<!-- This will appear id the username is too short -->
-			<span id = "help" class="help-block" ng-show="myForm.newName.$error.minlength">Too short</span>
 		</div>
-	</form>
+
+		<!-- Submits data and brings user to the profile/start page. -->
+		<div class="form-group">
+			<button id = "create" ng-click="signUp()" ng-disabled="myForm.$invalid" type="submit" ui-sref="start" >Create Account</button> 
+		</div>
+
+		<!-- This will appear id the username is too short -->
+		<!-- <span id = "help" class="help-block" ng-show="myForm.newName.$error.minlength">Too short</span> -->
+	</div>
+</form>
 </div>
 

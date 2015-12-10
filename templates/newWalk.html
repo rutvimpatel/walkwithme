@@ -1,5 +1,5 @@
 <!-- Page for posting a walk. -->
-<div id="newWalk" ng-show = "userID">
+<div id="newWalk" ng-show="userID">
 	<div class="container">
 		<div class="row">
 			<!--  Profile Info -->
@@ -12,39 +12,66 @@
 
 			<!-- Post Walk Information -->
 			<div class="col-xs-12 col-md-8">
-				<form>
+				<form novalidate name="desForm">
 					<h3>Add a new search to the map.</h3>
 					<div class="form-group">
-						<label for="startLocation">Start Location</label>
-					    <input type="text" class="form-control" id="startLocation" placeholder="Where will you be?" ng-model="query.startStr">
+						<label for="startLocation">Start Location (include the city)</label>
+						<input type="text" class="form-control" id="startLocation" name="startLocation" placeholder="Where will you be?" ng-model="query.startStr">
+
+						<div ng-show="desForm.$submitted || desForm.startLocation.$touched">
+							<p ng-show="desForm.startLocation.$error.required" class="error-message">Start Location is required.</p>
+						</div>
+
+					</div>
+
+					<div class="form-group">
+						<label for="destination">Destination (include the city)</label>
+						<input type="text" class="form-control" id="destination" name="destination" placeholder="Where are you going?" ng-model="query.destStr">
+
+						<div ng-show="desForm.$submitted || desForm.destination.$touched">
+							<p ng-show="desForm.destination.$error.required" class="error-message">Destination is required.</p>
+						</div>
+
+					</div>
+
+					<div ng-show = "!userID">
+						<p>You must login with a valid account</p>
 					</div>
 					<div class="form-group">
-					    <label for="destination">Destination</label>
-					    <input type="text" class="form-control" id="destination" placeholder="Where are you going?" ng-model="query.destStr">
+						<label for="startTime">Start Time</label>
+						<input type="text" class="form-control" id="startTime" name="startTime" placeholder="When will you be leaving?" ng-model="query.startTime">
+
+
+						<div ng-show="desForm.$submitted || desForm.startTime.$touched">
+							<p ng-show="desForm.startTime.$error.required" class="error-message">Start Time is required.</p>
+						</div>
 					</div>
+
 					<div class="form-group">
-					    <label for="startTime">Start Time</label>
-					    <input type="text" class="form-control" id="startTime" placeholder="When will you be leaving?" ng-model="query.startTime">
+						<label for="waitTime">Wait Time</label>
+						<input type="text" class="form-control" id="waitTime" name="waitTime" placeholder="How long can you wait?" ng-model="query.waitTime">
+
+						<div ng-show="desForm.$submitted || desForm.waitTime.$touched">
+							<p ng-show="desForm.waitTime.$error.required" class="error-message">Wait Time is required.</p>
+						</div>
+
+
 					</div>
-					<div class="form-group">
-					    <label for="waitTime">Wait Time</label>
-					    <input type="text" class="form-control" id="waitTime" placeholder="How long can you wait?" ng-model="query.waitTime">
-					</div>
+
+
+
 					<div class="checkbox">
 						<label>
 							<input type="checkbox" ng-model="query.umbrella"> Umbrella?
 						</label>
 					</div>
-						
+					
 					<button ng-click="addMarker()" type="submit" class="btn btn-default">Submit</button>
 				</form>	
 			</div>
 
 		</div>
 		<button class="logout btn btn-default" ng-click="logOut()" type="submit" ui-sref="home">Logout</button>
-		<button class="back btn btn-default" type="submit" ui-sref="start">Back</button>
+		<button class="back btn btn-default" ng-click="loadWeather()" type="submit" ui-sref="start">Back</button>
 	</div>
-</div>
-<div ng-show = "!userID">
-	<p>You must login with a valid account</p>
 </div>
