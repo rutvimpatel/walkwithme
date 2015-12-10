@@ -1,5 +1,5 @@
 <!-- Page for posting a walk. -->
-<div id="newWalk">
+<div id="newWalk" ng-show = "userID">
 	<div class="container">
 		<div class="row">
 			<!--  Profile Info -->
@@ -36,7 +36,7 @@
 						</label>
 					</div>
 						
-					<button ng-click="makeMarker()" type="submit" class="btn btn-default">Submit</button>
+					<button ng-click="addMarker()" type="submit" class="btn btn-default">Submit</button>
 				</form>	
 			</div>
 
@@ -44,4 +44,7 @@
 		<button class="logout btn btn-default" ng-click="logOut()" type="submit" ui-sref="home">Logout</button>
 		<button class="back btn btn-default" type="submit" ui-sref="start">Back</button>
 	</div>
+</div>
+<div ng-show = "!userID">
+	<p>You must login with a valid account</p>
 </div>

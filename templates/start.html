@@ -1,5 +1,5 @@
 <!-- Profile Page, allows user to post their walk or search for one. -->
-<div id="startPage">
+<div id="startPage" ng-show = "userID">
 
 	<div class="container">
 		<div class="row">
@@ -87,3 +87,6 @@
 	</button>
 
 </div> 
+<div ng-show = "!userID">
+	<p>You must login with a valid account</p>
+</div>

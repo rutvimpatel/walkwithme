@@ -1,4 +1,4 @@
-<div id="profile">	
+<div id="profile" ng-show = "userID">	
 	<div class="form-group">
 		<label for="firstName"> What's your first name? </label>
 		<input id="firstName" name = "firstName" ng-model="firstName" ng-minlength="1" type ="string" class="form-control"></input>
@@ -17,4 +17,7 @@
 		<span id = "help" class="help-block" ng-show="myForm.newName.$error.minlength">Input too short!</span>
 	</div>
 	<button class="logout" ng-click="logOut()" type="submit" ui-sref="home">Logout</button>
+</div>
+<div ng-show = "!userID">
+	<p>You must login with a valid account</p>
 </div>
