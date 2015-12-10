@@ -35,7 +35,7 @@
 					
 					$scope.users1.forEach(function(d){
 						$scope.username = d.username;
-						$scope.queries = d.query;
+						$scope.queries = _.merge($scope.queries,d.queries)
 
 
 					})
@@ -112,20 +112,21 @@
 				password: $scope.newPass,      
 			})
 
-		  	// Once the user is created, call the logIn function
-		  	.then($scope.newlogIn)
-
-			  // Once logged in, set and save the user data
-			  .then(function(authData) {
-			  	$scope.userID = authData.uid;
+			// Once logged in, set and save the user data
+			.then(function(authData) {
+			  	$scope.userID = shared.getuserToken();
 			  	$scope.users[authData.uid] ={
 			  		username : $scope.newName, 
 			  		first: $scope.firstName,
 			  		last: $scope.lastName,
+			  		email: $scope.newEmail,
 			  	}
 			  	$scope.users.$save()
 
-			  })
+			})
+
+			  // Once the user is created, call the logIn function
+		  	.then($scope.newlogIn)
 			  
 			}
 

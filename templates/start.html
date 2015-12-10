@@ -1,11 +1,11 @@
 <!-- Profile Page, allows user to post their walk or search for one. -->
 
-<div id="startPage" ng-show = "userID">
+<div id="startPage" >
 	<div class="container">
 		<div class="row">
 			<!--  Profile Info -->
 			<div class="col-xs-12 col-md-4">
-				<h3 class="username">{{users[userID].firstName + " " + users[userID].lastName}}</h3>
+				<h3 class="username">{{users[userID].first + " " + users[userID].last}}</h3>
 				<img class="profilePic" class="img-responsive img-rounded" src="../img/testProfile.jpeg">
 			</div>
 			
@@ -26,6 +26,3 @@
 	</button>
 
 </div> 
-<div ng-show = "!userID">
-	<p>You must login with a valid account</p>
-</div>

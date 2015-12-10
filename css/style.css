@@ -43,6 +43,7 @@ body #welcome {
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 2em;
 	padding: 2em;
 	position: relative;
 
@@ -60,9 +61,17 @@ img {
 	margin-bottom: 1em;
 }
 
+#map {
+	margin-top: 2em;
+}
+
 /* ======Individual Page CSS====== */
 #create {
 	margin-top: 1em;
+}
+
+#create .back {
+	float:none;
 }
 
 #profile {
@@ -82,6 +91,7 @@ img {
 
 .back {
 	margin-right: 2em;
+	margin-bottom: 2em;
 }
 
 .container {

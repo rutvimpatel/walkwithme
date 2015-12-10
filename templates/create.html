@@ -52,11 +52,10 @@
 
 		<!-- Submits data and brings user to the profile/start page. -->
 		<div class="form-group">
-			<button id = "create" ng-click="signUp()" ng-disabled="myForm.$invalid" type="submit" ui-sref="start" >Create Account</button> 
+			<button class="btn btn-default" ng-click="signUp()" ng-disabled="myForm.$invalid" type="submit" ui-sref="start" >Create Account</button> 
 		</div>
 
-		<!-- This will appear id the username is too short -->
-		<!-- <span id = "help" class="help-block" ng-show="myForm.newName.$error.minlength">Too short</span> -->
+		<button class="back btn btn-default" ng-click="loadWeather()" type="submit" ui-sref="home">Back</button>
 	</div>
 </form>
 </div>
