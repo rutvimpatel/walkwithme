@@ -7,7 +7,7 @@
 	<form novalidate id = "signin" name="userForm">
 		<div class="form-group">
 			<!-- Input username -->
-			<label for = "user" >Username: </label>
+			<label for = "user" >Email: </label>
 			<input id = "user" name = "user" ng-model = "user" type="text" class="form-control" ng-minlength="6" placeholder="Username">
 			<!-- Displays an error if username is too short -->
 			<p ng-show="userForm.user.$error.minlength" class="help-block">Username is too short.</p>
@@ -28,6 +28,7 @@
 		</div>
 		<!-- Button to sign in, call signIn() and loadWeather() functions -->
 		<button id = "signIn" ng-click = "signIn(); loadWeather()" type="submit" class="btn btn-default" ui-sref="start">Sign in</button>
+		<button class="back btn btn-default" ng-click="loadWeather()" type="submit" ui-sref="home">Back</button>
 	</form>	
 
 </div>

@@ -57,6 +57,8 @@ button {
 }
 
 img {
+	height: 250px;
+	width: auto;
 	margin-bottom: 1em;
 }
 
@@ -93,21 +95,19 @@ img {
 
 /* ======Shared Classes====== */
 
-.back {
-	margin-right: 2em;
-	margin-bottom: 2em;
-}
-
 .container {
 	padding: 0;
 }
 
+.col-xs-12, .col-md-4 {
+	text-align: center;
+}
+
 .form-control {
-	width: 80%;
+	width: 100%;
 }
 
 .logout, .back {
-	float: right;
 	color: black;
 }
 
@@ -129,7 +129,6 @@ img {
 }
 
 .username {
-	text-align: left;
 	font-size: 2em;
 }
 
@@ -225,10 +224,11 @@ i {
 		font-weight: bold;
 		letter-spacing: 0.15em;
 	}.form-control {
-		width: 30%;
+		width: 100%;
 	}
 	.weather ul {
 	  margin: 0;
+	  margin-bottom: 2em;
 	  padding: 0;
 	}
 

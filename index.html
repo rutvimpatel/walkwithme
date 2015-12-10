@@ -66,7 +66,7 @@
 
 
 		<!--The map displays when user is logged in -->
-		<div ng-show="userID">
+		<div >
 				<div id="map" ng-controller="mapCtrl">
 				<!-- Button on click will call showMarkers() to draw markers on map -->
 				<button ng-click="showMarkers()" class="btn btn-default">Show walkers!</button>
@@ -81,7 +81,7 @@
 					<!-- Create info window that displays username, start and destination locations -->
 					<info-window id="infoWindow">
 						<div ng-non-bindable="">
-							<h3>{{username}}</h3>
+							<h3>{{first + " " + last}}</h3>
 							<p>Start: {{walk.startStr}}</p>
 							<p>Destination: {{walk.destStr}}</p>
 							<button ng-click="deleteWalk(walk)">Delete!</button>
