@@ -6,24 +6,27 @@
 
 	<form novalidate id = "signin" name="userForm">
 		<div class="form-group">
-			<label for = "user" >Email: </label>
+			<!-- Input username -->
+			<label for = "user" >Username: </label>
 			<input id = "user" name = "user" ng-model = "user" type="text" class="form-control" ng-minlength="6" placeholder="Username">
+			<!-- Displays an error if username is too short -->
 			<p ng-show="userForm.user.$error.minlength" class="help-block">Username is too short.</p>
-
+			<!-- Displays an error if username isn't filled out -->
 			<div ng-show="userForm.$submitted || userForm.user.$touched">
 				<p ng-show="userForm.user.$error.required" class="error-message">Username is required.</p>
 			</div>
 		</div>
 
 		<div class="form-group">
+			<!-- Input password -->
 			<label for = "pass">Password: </label>
 			<input id = "pass" name = "pass" ng-model = "pass" type="password" class="form-control" placeholder="Password">
-
+			<!-- Displays an error if password isn't filled out -->
 			<div ng-show="userForm.$submitted || userForm.pass.$touched">
 				<p ng-show="userForm.pass.$error.required" class="error-message">Password is required.</p>
 			</div>
 		</div>
-
+		<!-- Button to sign in, call signIn() and loadWeather() functions -->
 		<button id = "signIn" ng-click = "signIn(); loadWeather()" type="submit" class="btn btn-default" ui-sref="start">Sign in</button>
 	</form>	
 

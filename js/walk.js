@@ -1,7 +1,8 @@
 (function() {
-
+	// create App and inject dependencies
 	var myApp = angular.module('myApp', ['firebase', 'ui.bootstrap', 'ui.router', 'ngMap']);
 
+	// attach service to make information accessible to other controllers
 	myApp.service('shared', function () {
 		var userToken;
 
@@ -15,22 +16,25 @@
 		}
 	})
 
+	// controller for map
 	myApp.controller('mapCtrl', function(NgMap, $scope, $compile,$firebaseObject, $firebaseArray, shared) {
 		NgMap.getMap().then(function(map) {
 			$scope.map = map;
 		});
 
+		// create queries object in firebase
 		$scope.queries = {}
+		// create new firebase
 		var ref1 = new Firebase('https://walkwithme343c.firebaseio.com/');
 
 		var queriesRef1 = ref1.child("queries1");
 		$scope.queriesArr1 = $firebaseArray(queriesRef1)
-
+		// create users in queries
 		var usersRef1 = ref1.child("users");
 		    	//Login/ User Authentication
 				// firebaseObject of users
 				$scope.users1 = $firebaseArray(usersRef1);	 
-
+				// get markers for each user
 				$scope.showMarkers = function(){
 					
 					$scope.users1.forEach(function(d){
@@ -41,7 +45,7 @@
 					})
 					
 				}
-
+				// get info for infoWindow
 				$scope.showInfo = function(ev, userID) {
 					$scope.walk = $scope.queries[userID];
 
@@ -54,6 +58,7 @@
 			}
 			);
 
+	// controller for other pages, not map
 	myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseObject, $http, $firebaseArray, shared){ // Do we need http?
 		var ref = new Firebase('https://walkwithme343c.firebaseio.com/');
 

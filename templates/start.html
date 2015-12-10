@@ -5,15 +5,16 @@
 		<div class="row">
 			<!--  Profile Info -->
 			<div class="col-xs-12 col-md-4">
+				<!-- Displays user name -->
 				<h3 class="username">{{users[userID].first + " " + users[userID].last}}</h3>
 				<img class="profilePic" class="img-responsive img-rounded" src="../img/testProfile.jpeg">
 			</div>
 			
-			<!--Previous Walks --> 
+			<!-- Weather Display --> 
 			<div class="weather col-xs-12 col-md-4">
 			</div>
 
-			<!--Blocked Users --> 
+			<!--Empty Div --> 
 			<div class="col-xs-12 col-md-4">
 			</div>
 		</div>
@@ -21,7 +22,7 @@
 
 	<button class="logout btn btn-default" ng-click="logOut()" type="submit" ui-sref="home">Logout</button>
 
-	<!-- List/Search buttons --> 
+	<!-- Add a new start/end destination to map --> 
 	<button id="findMe" class="btn btn-default" ui-sref="newWalk">Find Me!
 	</button>
 

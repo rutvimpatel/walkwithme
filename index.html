@@ -64,34 +64,40 @@
 		<div ui-view>
 		</div>
 
-		<!--The map -->
-		<div ng-show="userID">
-			<div id="map" ng-controller="mapCtrl">
-			<button ng-click="showMarkers()" class="btn btn-default">Show walkers!</button>
-			<ng-map default-style="false" center="47.6097,-122.3331" style="width:100%;height:100%;" zoom="11">
-				<marker ng-repeat="(id, info) in queries"
-					position="{{info.startStr}}"
-					on-click="showInfo(event, id)"
-					id="id"
-					animation="DROP"/>
-				<info-window id="infoWindow">
-					<div ng-non-bindable="">
-						<h3>{{username}}</h3>
-						<p>Start: {{walk.startStr}}</p>
-						<p>Destination: {{walk.destStr}}</p>
-						<button ng-click="deleteWalk(walk)">Delete!</button>
-					</div>
-				</info-window>
 
-				<directions
-		          draggable="true"
-		          panel="directions-panel"
-		          travel-mode="WALKING"
-		          origin="{{walk.startStr}}"
-		          destination="{{walk.destStr}}"
-		          >
-		        </directions>
-			</ng-map>
+		<!--The map displays when user is logged in -->
+		<div ng-show="userID">
+				<div id="map" ng-controller="mapCtrl">
+				<!-- Button on click will call showMarkers() to draw markers on map -->
+				<button ng-click="showMarkers()" class="btn btn-default">Show walkers!</button>
+				<!-- Map default styles are false to allow customization, center around Seattle -->
+				<ng-map default-style="false" center="47.6097,-122.3331" style="width:100%;height:100%;" zoom="11">
+					<!-- Iterate through queries to attach position and on-click event -->
+					<marker ng-repeat="(id, info) in queries"
+						position="{{info.startStr}}"
+						on-click="showInfo(event, id)"
+						id="id"
+						animation="DROP" />
+					<!-- Create info window that displays username, start and destination locations -->
+					<info-window id="infoWindow">
+						<div ng-non-bindable="">
+							<h3>{{username}}</h3>
+							<p>Start: {{walk.startStr}}</p>
+							<p>Destination: {{walk.destStr}}</p>
+							<button ng-click="deleteWalk(walk)">Delete!</button>
+						</div>
+					</info-window>
+
+					<!-- Displays a route to walk from start destination to end destination -->
+					<directions
+			          draggable="true"
+			          panel="directions-panel"
+			          travel-mode="WALKING"
+			          origin="{{walk.startStr}}"
+			          destination="{{walk.destStr}}"
+			          >
+			        </directions>
+				</ng-map>
 			</div>
 		</div>
 	</div>

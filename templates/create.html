@@ -6,8 +6,11 @@
 		<div class="form-group">
 			<label for="newName"> Create a Username: </label>
 			<input id="newName" name = "newName" ng-model="newName" ng-minlength="6" type ="text" class="form-control"></input>
+			
+			<!-- Displays an error if username is less than 6 -->
 			<p ng-show="userForm.newName.$error.minlength" class="help-block">Username is too short.</p>
 
+			<!-- Displays an error if username isn't filled out -->
 			<div ng-show="userForm.$submitted || userForm.newName.$touched">
 				<p ng-show="userForm.newName.$error.required" class="error-message">Username is required.</p>
 			</div>
@@ -17,6 +20,7 @@
 			<label for="email"> Enter an email address: </label>
 			<input id="newEmail" name = "newEmail" ng-model="newEmail" type ="email" class="form-control"></input>
 
+			<!-- Displays an error if username isn't filled out or not an email -->
 			<div ng-show="userForm.$submitted || userForm.newEmail.$touched">
 				<p ng-show="myForm.newEmail.$error.required" class="error-message">Email is required.</p>
 				<p ng-show="myForm.newEmail.$error.email" class="help-block">Email is invalid.</p>
@@ -27,6 +31,7 @@
 			<label for="newPass"> Create a Password</label>
 			<input id="newPass" name = "newPass" type = "password" ng-model="newPass" class="form-control"></input>
 
+			<!-- Displays an error if password isn't filled out -->
 			<div ng-show="userForm.$submitted || userForm.newPass.$touched">
 				<p ng-show="myForm.newPass.$error.required" class="error-message">Password is required.</p>
 			</div>
@@ -36,6 +41,7 @@
 			<label for="firstName"> What's your first name? </label>
 			<input id="firstName" name = "firstName" ng-model="firstName" ng-minlength="1" type ="string" class="form-control"></input>
 
+			<!-- Displays an error if firstname isn't filled out -->
 			<div ng-show="userForm.$submitted || userForm.firstName.$touched">
 				<p ng-show="myForm.firstName.$error.required" class="error-message">First Name is required.</p>
 			</div>
@@ -45,6 +51,7 @@
 			<label for="lastName"> What's your last name? </label>
 			<input id="lastName" name = "lastName" ng-model="lastName" ng-minlength="1" type ="string" class="form-control"></input>
 
+			<!-- Displays an error if lastname isn't filled out -->
 			<div ng-show="userForm.$submitted || userForm.lastName.$touched">
 				<p ng-show="myForm.lastName.$error.required" class="error-message">Last Name is required.</p>
 			</div>
