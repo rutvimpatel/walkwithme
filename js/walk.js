@@ -33,15 +33,15 @@
 		var usersRef1 = ref1.child("users");
 		    	//Login/ User Authentication
 				// firebaseObject of users
-				$scope.users1 = $firebaseArray(usersRef1);	 
+				
+				$scope.users1 = $firebaseArray(usersRef1);
 				// get markers for each user
 				$scope.showMarkers = function(){
-					
+
+					console.log($scope.users1)
 					$scope.users1.forEach(function(d){
 						$scope.username = d.username;
-						$scope.queries = _.merge($scope.queries,d.queries)
-
-
+						$scope.queries = _.merge($scope.queries,d.query)
 					})
 					
 				}
@@ -53,7 +53,6 @@
 				}
 
 				$scope.deleteWalk = function(walk){
-					$scope.walk.delete = true;
 				}
 			}
 			);
@@ -160,25 +159,14 @@
 		 	$scope.userID = 'false'; // can probably set this to authobj.uid
 		 }
 
-		 $scope.pushData = function() {
-		 	var bloop = "users/" + shared.getuserToken();
-		 	var test = ref.child(bloop);
-		 	test.child('hello').push({
-		 		"comment":"dlskfd" 
-		 	})
-
-		 }
-
-		 //The map functions
-		 $scope.query = {}
-
-		 $scope.addMarker = function(){
+		//Adds map marker
+		$scope.addMarker = function(){
 		 	var id = "users/" + shared.getuserToken();
 		 	ref.child(id).child("query").push($scope.query);
 		 	$scope.query = {}
 		 }
 
-		})
+	})
 
 	// This configures each state that the webpage can be. Each state
 	// will have a different url
