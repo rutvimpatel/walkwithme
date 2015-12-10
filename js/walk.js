@@ -1,15 +1,6 @@
 (function() {
 
-	var geocoder;
-
-	var myApp = angular.module('myApp', ['firebase', 'ui.bootstrap', 'ui.router', 'uiGmapgoogle-maps']);
-	myApp.config(function(uiGmapGoogleMapApiProvider) {
-    	uiGmapGoogleMapApiProvider.configure({
-        	key: 'AIzaSyCc5lF9SklV8T482wlgu6LulxH6mApxzkc',
-        	v: '3.20', //defaults to latest 3.X anyhow
-        	libraries: 'weather,geometry,visualization'
-    	});
-	})
+	var myApp = angular.module('myApp', ['firebase', 'ui.bootstrap', 'ui.router']);
 
 	myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseObject, $http, $firebaseArray){ // Do we need http?
 		var ref = new Firebase('https://walkwithme343c.firebaseio.com/');
@@ -21,11 +12,7 @@
 
 		//The map functions
 		$scope.query = {}
-		$scope.markers = [];
-    	$scope.map = { 
-    		center: { latitude: 47.6097, longitude: -122.3331 }, 
-    		zoom: 12 
-    	};
+
     	//Login/ User Authentication
 		// firebaseObject of users
 		$scope.users = $firebaseObject(usersRef);
@@ -38,43 +25,6 @@
 		  console.log($scope.userID);
 		}
 		console.log(authData);
-
-    	$scope.makeMarker = function() {
-    		console.log("Making Marker")
-    		console.log(geocoder)
-
-    		console.log("The start location: " + $scope.query.startStr)
-    		if(geocoder===undefined ){
-    			console.log("Made new geocoder")
-    			geocoder= new google.maps.Geocoder();
-    			console.log("The geocoder" + geocoder)
-    		}
-    		$scope.query.userID = $scope.userID;
-    		geocoder.geocode( { "address": $scope.query.startStr }, function(results, status) {
-    		    if (status == google.maps.GeocoderStatus.OK) {
-    		    	console.log("Geocoded start location")
-    		        $scope.query.startPos = results[0].geometry.location;
-    		    } else {
-    		    	console.log("Something wrong happened")
-    		    }
-    		});
-    		geocoder.geocode( { "address": $scope.query.destStr }, function(results, status) {
-    		    if (status == google.maps.GeocoderStatus.OK) {
-    		    	console.log("Geocoded destination")
-    		        $scope.query.destPos = results[0].geometry.location;
-    		        addMarker();
-    		    } else {
-    		    	console.log("Something wrong happened")
-    		    }
-    		});
-    	}
-    	var addMarker = function(){
-    		$scope.queriesArr.$add($scope.query)
-    			.then(function(){
-    				console.log("Resetting")
-    				$scope.query = {}
-    			})
-    	}
 
     	// SignIn function
 		$scope.signIn = function() {
@@ -184,6 +134,8 @@
 	 		templateUrl:'templates/search.html',
 	 		controller:'myCtrl'
 	 	})
+
+	 	//No Function ATM
 	 	.state('approvedeny', {
 	 		url:'/approvedeny',
 	 		templateUrl:'templates/approvedeny.html',
@@ -191,14 +143,9 @@
 	 	})
 	})
 
-	//controller for sign in page
-	// myApp.controller('signInController', function($scope){
-	 	
-	// })
+	myApp.run(['$state', function ($state) {
+		$state.transitionTo('home');
+	}])
 
-	// // Controller for create page
-	// myApp.controller('createController', function($scope){
-	 	
-	// })
 
 })();

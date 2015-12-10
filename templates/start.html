@@ -1,8 +1,6 @@
 <!-- Profile Page, allows user to post their walk or search for one. -->
 <div id="startPage">
 
-	<button class="logout" ng-click = "logOut()" type="submit" ui-sref="signIn">Logout</button>
-
 	<div class="container">
 		<div class="row">
 			<!--  Profile Info -->
@@ -80,8 +78,10 @@
 		</div>
 	</div>
 
+	<button class="logout btn btn-default" ng-click="logOut()" type="submit" ui-sref="home">Logout</button>
+
 	<!-- List/Search buttons --> 
-	<button class="btn btn-default" ui-sref="newWalk">Find Me!
+	<button id="findMe" class="btn btn-default" ui-sref="newWalk">Find Me!
 	</button>
 	<button class="btn btn-default" ui-sref="search">Who's Free?
 	</button>

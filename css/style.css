@@ -60,9 +60,14 @@ button {
 	margin-bottom: 2em;
 }
 
+#startPage #findMe {
+	margin-right: 5em;
+}
+
 /* ======Shared Classes====== */
-.angular-google-map-container { 
-	height: 400px; 
+
+.back {
+	margin-right: 2em;
 }
 
 .container {
@@ -73,7 +78,7 @@ button {
 	width: 30%;
 }
 
-.logout {
+.logout, .back {
 	float: right;
 	color: black;
 }
